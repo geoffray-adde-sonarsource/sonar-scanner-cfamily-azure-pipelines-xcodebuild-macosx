@@ -56,9 +56,9 @@ jobs:
   dependsOn: [] # by specifying an empty array, this stage doesn't depend on the stage before it
   pool:
     vmImage: 'macOS-10.14'
-  # variables:
-  #   CC: clang
-  #   CXX: clang++
+  variables:
+     CC: clang
+     CXX: clang++
   #   xcodeVersion: "11.2.1"
   steps:
   - task: SonarCloudPrepare@1
