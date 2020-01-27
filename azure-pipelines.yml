@@ -93,7 +93,7 @@ jobs:
       # build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -scheme sonar_scanner_example -configuration Release build
       
       # works: xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release clean
-      works: xcodebuild -project sonar_scanner_example.xcodeproj clean
+      xcodebuild -project sonar_scanner_example.xcodeproj clean
       build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release build
     displayName: Compile project in build wrapper
   - task: SonarCloudAnalyze@1
