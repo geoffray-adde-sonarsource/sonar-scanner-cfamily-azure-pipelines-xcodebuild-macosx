@@ -38,9 +38,9 @@ jobs:
   dependsOn: [] # by specifying an empty array, this stage doesn't depend on the stage before it
   pool:
     vmImage: 'macOS-10.14'
-  variables:
-     CC: clang
-     CXX: clang++
+  # variables:
+  #    CC: clang
+  #    CXX: clang++
   #   xcodeVersion: "11.2.1"
   steps:
   - task: SonarCloudPrepare@1
@@ -58,6 +58,8 @@ jobs:
       unzip build-wrapper-macosx-x86.zip
     displayName: Install buildwrapper
   - bash: |
+      which clang
+      which clang++
       xcodebuild -project sonar_scanner_example.xcodeproj clean
     workingDirectory: .
     displayName: Prepare build
