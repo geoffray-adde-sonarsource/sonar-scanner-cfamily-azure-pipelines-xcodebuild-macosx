@@ -23,7 +23,7 @@ jobs:
       configMode: 'manual'
       cliProjectKey: 'geoffray-azure-xcodebuild-macosx-test'
       cliProjectName: 'geoffray-azure-xcodebuild-macosx-test'
-      cliSources: 'src'
+      cliSources: 'sonar_scanner_example'
       extraProperties: 'sonar.cfamily.build-wrapper-output=build_wrapper_output_directory'
   - bash: |
       curl 'https://peach.sonarsource.com/static/cpp/build-wrapper-macosx-x86.zip' --output build-wrapper-macosx-x86.zip
@@ -55,7 +55,7 @@ jobs:
       configMode: 'manual'
       cliProjectKey: 'geoffray-azure-xcodebuild-macosx-test'
       cliProjectName: 'geoffray-azure-xcodebuild-macosx-test'
-      cliSources: 'src'
+      cliSources: 'sonar_scanner_example'
       extraProperties: 'sonar.cfamily.build-wrapper-output=build_wrapper_output_directory'
   - bash: |
       curl 'https://peach.sonarsource.com/static/cpp/build-wrapper-macosx-x86.zip' --output build-wrapper-macosx-x86.zip
