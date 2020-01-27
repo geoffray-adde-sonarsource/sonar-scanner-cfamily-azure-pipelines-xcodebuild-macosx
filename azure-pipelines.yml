@@ -40,7 +40,8 @@ jobs:
   - bash: |
       echo '#!/bin/bash' >> mybuild.sh
       echo 'set -euo pipefail' >> mybuild.sh
-      echo 'xcodebuild -project sonar_scanner_example.xcodeproj -scheme sonar_scanner_example -configuration Release build' >> mybuild.sh
+      # echo 'xcodebuild -project sonar_scanner_example.xcodeproj -scheme sonar_scanner_example -configuration Release build' >> mybuild.sh
+      echo 'xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release build' >> mybuild.sh
       cat mybuild.sh
     workingDirectory: .
     displayName: Prepare build
@@ -88,6 +89,7 @@ jobs:
   #   workingDirectory: .
   #   displayName: Prepare build
   - bash: |
+      # Here the clean before the build seems to break the build-wrapper
       # build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -scheme sonar_scanner_example -configuration Release build
       build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release build
     displayName: Compile project in build wrapper
