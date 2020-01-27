@@ -47,7 +47,7 @@ jobs:
     workingDirectory: .
     displayName: Prepare build
   - bash: |
-      build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release bash mybuild.sh
+      build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory bash mybuild.sh
     displayName: Compile project in build wrapper
   - task: SonarQubeAnalyze@4
 
