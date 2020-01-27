@@ -40,11 +40,14 @@ jobs:
       xcodebuild -version
     displayName: setup
   - bash: |
-      xcodebuild -project sonar_scanner_example.xcodeproj clean
+      echo '#!/bin/bash' >> mybuild.sh
+      echo 'set -euo pipefail' >> mybuild.sh
+      echo 'xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release build' >> mybuild.sh
+      cat mybuild.sh
     workingDirectory: .
     displayName: Prepare build
   - bash: |
-      bash -c 'build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release build'
+      build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release bash mybuild.sh
     displayName: Compile project in build wrapper
   - task: SonarQubeAnalyze@4
 
