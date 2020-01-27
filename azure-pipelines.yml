@@ -34,7 +34,7 @@ jobs:
     workingDirectory: .
     displayName: Prepare build
   - bash: |
-      build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release
+      build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release build
     displayName: Compile project in build wrapper
   - task: SonarQubeAnalyze@4
 
@@ -66,6 +66,6 @@ jobs:
     workingDirectory: .
     displayName: Prepare build
   - bash: |
-      build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release
+      build-wrapper-macosx-x86/build-wrapper-macosx-x86 --out-dir build_wrapper_output_directory xcodebuild -project sonar_scanner_example.xcodeproj -configuration Release build
     displayName: Compile project in build wrapper
   - task: SonarCloudAnalyze@1
