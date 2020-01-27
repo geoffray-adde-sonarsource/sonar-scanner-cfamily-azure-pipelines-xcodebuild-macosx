@@ -58,8 +58,8 @@ jobs:
       unzip build-wrapper-macosx-x86.zip
     displayName: Install buildwrapper
   - bash: |
-      which clang
-      which clang++
+      ls -larth `which clang`
+      ls -larth `which clang++`
       xcodebuild -project sonar_scanner_example.xcodeproj clean
     workingDirectory: .
     displayName: Prepare build
