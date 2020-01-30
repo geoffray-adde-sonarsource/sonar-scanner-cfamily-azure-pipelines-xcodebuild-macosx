@@ -1,17 +1,12 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
 jobs:
-- job: BuildMacOSXWithSonarQube
-  displayName: Build for MacOSX With SonarQube
-  dependsOn: [] # by specifying an empty array, this stage doesn't depend on the stage before it
+- job: BuildMacOSWithSonarQube
+  displayName: Build for MacOS With SonarQube
+  dependsOn: []
   pool:
-    vmImage: 'macOS-10.14'
+    vmImage: 'macOS-latest'
   steps:
   - task: SonarQubePrepare@4
     inputs:
@@ -31,11 +26,11 @@ jobs:
     displayName: Compile project in build wrapper
   - task: SonarQubeAnalyze@4
 
-- job: BuildMacOSXWithSonarCloud
-  displayName: Build for MacOSX With SonarCloud
-  dependsOn: [] # by specifying an empty array, this stage doesn't depend on the stage before it
+- job: BuildMacOSWithSonarCloud
+  displayName: Build for MacOS With SonarCloud
+  dependsOn: []
   pool:
-    vmImage: 'macOS-10.14'
+    vmImage: 'macOS-latest'
   steps:
   - task: SonarCloudPrepare@1
     inputs:
